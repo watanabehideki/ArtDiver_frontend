@@ -21,19 +21,19 @@ const Navbar = () => {
     <>
       <Nav>
         <NavLink to='/'>
-          <h1>Logo</h1>
+          <h1>ARTDIVER</h1>
         </NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to='/about' activeStyle>
-            About
+          <NavLink to='/exhibitions' activeStyle>
+            EXHIBITIONS
           </NavLink>
-          <NavLink to='/services' activeStyle>
-            Services
+          <NavLink to='/museums-galleries' activeStyle>
+            MUSEUMS / GALLERIES
           </NavLink>
 
-          <NavLink to='/contact-us' activeStyle>
-            Contact Us
+          <NavLink to='/contact' activeStyle>
+            お問い合わせ
           </NavLink>
           {!currentUser &&
           <>
