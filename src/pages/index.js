@@ -1,9 +1,9 @@
 import React from 'react'
-import Registration from './auth/Registration'
-import Login from './auth/Login'
+import Registration from '../components/auth/Registration'
+import Login from '../components/auth/Login'
 import axios from 'axios'
 
-export default function Home(props) {
+const Home = (props) => {
 
     const handleSuccessfulAuthentication = (data) => { //ユーザー情報を引数で渡す
         props.handleLogin(data)
@@ -18,11 +18,20 @@ export default function Home(props) {
     }
 
     return (
-        <div>
+        <div
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '90vh'
+            }}
+        >
             <h1>Home</h1>
-            <h2>ログイン状態: {props.loggedInStatus}</h2>
+            {/* <h2>ログイン状態: {props.loggedInStatus}</h2>
             <Registration handleSuccessfulAuthentication={handleSuccessfulAuthentication} /> 
-            <Login handleSuccessfulAuthentication={handleSuccessfulAuthentication} />
+            <Login handleSuccessfulAuthentication={handleSuccessfulAuthentication} /> */}
         </div>
     )
 }
+
+export default Home

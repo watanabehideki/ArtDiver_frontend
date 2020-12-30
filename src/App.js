@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import './App.css'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 
-import Home from './components/Home'
+import Home from './pages'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 
-export default function App() {
+import Navbar from './components/Navbar'
+
+function App() {
 
   const [loggedInStatus, setLoggedInStatus] = useState("未ログイン")
   const [user, setUser] = useState({})
@@ -40,8 +45,8 @@ export default function App() {
   }
 
   return (
-    <div>
       <BrowserRouter>
+        <Navbar />
         <Switch>
           <Route 
             exact path={"/"}
@@ -49,8 +54,20 @@ export default function App() {
               <Home { ...props } handleLogin={handleLogin} handleLogout={handleLogout} loggedInStatus={loggedInStatus} /> //Home.js内のloggedInStatusという変数に、App.jsのloggedInStatus変数を代入
             )}
           />
+          <Route path='/login' 
+          render={props => (
+            <Login />
+          )}
+          />
+          <Route path='/signup' 
+          render={props => (
+            <Signup />
+          )}
+          />
+
         </Switch>
       </BrowserRouter>
-    </div>
   )
 }
+
+export default App
