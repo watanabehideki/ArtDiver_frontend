@@ -1,0 +1,20 @@
+import React from 'react'
+
+export const SidebarData = [
+  {
+    title: 'HOME',
+    path: '/'
+  },
+  {
+    title: 'EXHIBITIONS',
+    path: '/exhibitions'
+  },
+  {
+    title: 'MUSEUMS / GALLERIES',
+    path: '/museums-galleries'
+  },
+  {
+    title: 'お問い合わせ',
+    path: '/contact'
+  }
+]
