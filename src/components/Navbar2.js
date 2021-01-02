@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { BiMenu } from 'react-icons/bi'
+import { BiMenu, BiUser } from 'react-icons/bi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { Button } from './Button'
 import './Navbar.css'
@@ -21,10 +22,25 @@ function Navbar() {
     }
   }
 
+  const handleSignOut = (event) => {
+    event.preventDefault();
+    axios({
+      method: 'DELETE',
+      url: 'http://localhost:4001/auth/sign_out',
+      data: JSON.parse(localStorage.user)
+    })
+    .then(() => {
+      localStorage.removeItem('user')
+      window.location = '/'
+    })
+  }
+  const currentUser = localStorage.getItem('user')
+
+
+
   useEffect(() => {
     showButton();
   }, []);
-
   window.addEventListener('resize', showButton)
 
   return (
@@ -34,6 +50,14 @@ function Navbar() {
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           ARTDIVER
         </Link>
+        { currentUser &&
+        <>
+          <Link to='/mypage' className='mypage-logo'>
+            <BiUser />
+          </Link>
+        </>
+        }
+
         <div className='menu-icon' onClick={handleClick} >
           <i>
           {click ? <AiOutlineClose /> : <BiMenu />}
@@ -42,21 +66,37 @@ function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
+                HOME
               </Link>
             </li>
+            <li className='nav-item'>
+              <Link to='/exhibitions' className='nav-links' onClick={closeMobileMenu}>
+                EXHIBITIONS
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link to='/museums-galleries' className='nav-links' onClick={closeMobileMenu}>
+                MUSEUMS / GALLERIES
+              </Link>
+            </li>
+            { currentUser ?
+            <> 
+            <li className='nav-item'>
+              <Link to='/logout' className='nav-links' onClick={closeMobileMenu, handleSignOut}>
+                ログアウト
+              </Link>
+            </li>
+            </>
+            :
+            <>
             <li className='nav-item'>
               <Link to='/login' className='nav-links' onClick={closeMobileMenu}>
                 ログイン
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link to='/signup' className='nav-links-mobile' onClick={closeMobileMenu}>
-                新規登録
-              </Link>
-            </li>
+            </>
+            }
           </ul>
-          {button &&<Button buttonStyle='btn--outline'>新規登録</Button>}
       </div>
     </nav>
     </>

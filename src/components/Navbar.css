@@ -21,13 +21,22 @@
 .navbar-logo {
   color: #fff;
   justify-self: start;
-  margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
   display: flex;
   align-items: center;
 }
+
+.mypage-logo {
+  color: #fff;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 5rem;
+  transform: translate(25%, 50%);
+}
+
 
 .fa-typo3 {
   margin-left: 0.5rem;
@@ -47,6 +56,7 @@
 
 .nav-item {
   height: 80px;
+  font-size: 16px;
 }
 
 .nav-links {
@@ -59,7 +69,7 @@
 }
 
 .nav-links:hover {
-  color:  gray;
+  border-bottom: 4px solid #fff;
   transition: all 0.2s ease-out;
 }
 
@@ -73,7 +83,6 @@
 
 .menu-icon {
   display: none;
-  color: #fff;
 }
 
 @media screen and (max-width: 960px) {
@@ -84,19 +93,19 @@
   .nav-menu {
     display: flex;
     flex-direction: column;
-    width: 50vh;
+    width: 40%;
     height: 90vh;
     position: absolute;
     top: 80px;
-    right: -100%;
-    opacity: 1;
+    left: -100%;
+    opacity: 0.9;
     transition: all 0.5s ease;
   }
 
   .nav-menu.active {
     background: #242222;
-    right: -35px;
-    opacity: 1;
+    left: 0;
+    opacity: 0.9;
     transition: all 0.5s ease;
     z-index: 1;
   }
@@ -109,6 +118,8 @@
   }
 
   .nav-links:hover {
+    background-color: #fff;
+    color: #242424;
     border-radius: 0;
   }
 
@@ -119,7 +130,18 @@
     transform: translate(25%, 50%);
   }
 
+  .mypage-logo {
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    right: 5rem;
+    transform: translate(25%, 50%);
+  }
+  
+
   .menu-icon {
+    color: #fff;
     display: block;
     position: absolute;
     top: 0;
@@ -154,4 +176,6 @@
     color: #242424;
     transition: 250ms;
   }
+
+
 }

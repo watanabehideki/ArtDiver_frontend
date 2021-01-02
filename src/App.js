@@ -1,43 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './App.css'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, } from 'react-router-dom'
 
-import Home from './pages'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
+import Home from './components/pages'
+import Login from './components/auth/Login'
+import Signup from './components/auth/Signup'
 import Navbar2 from './components/Navbar2'
+import Footer from './components/Footer'
+
 
 
 function App() {
-
-  const currentUser = function() {
-    const user = localStorage.getItem('user')
-    return(user)
-  }
-
   return (
+    <>
       <BrowserRouter>
         <Navbar2 />
         <Switch>
-          <Route 
-            exact path={"/"}
-            render={props => (
-              <Home /> 
-            )}
-          />
-          <Route path='/login' 
-          render={props => (
-            <Login />
-          )}
-          />
-          <Route path='/signup' 
-          render={props => (
-            <Signup />
-          )}
-          />
-
+          <Route exact path={"/"} component={Home}/>
+          <Route exact path={"/login"} component={Login}/>
+          <Route exact path={"/signup"} component={Signup}/>
         </Switch>
+        <Footer />
       </BrowserRouter>
+      </>
   )
 }
 
