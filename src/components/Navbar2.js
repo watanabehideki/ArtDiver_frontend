@@ -5,6 +5,7 @@ import { BiMenu, BiUser } from 'react-icons/bi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { Button } from './Button'
 import './Navbar.css'
+import LoginModalLink from './auth/LoginModalLink'
 
 
 function Navbar() {
@@ -50,12 +51,14 @@ function Navbar() {
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           ARTDIVER
         </Link>
-        { currentUser &&
+        { currentUser ?
         <>
           <Link to='/mypage' className='mypage-logo'>
             <BiUser />
           </Link>
         </>
+        :
+          <LoginModalLink />
         }
 
         <div className='menu-icon' onClick={handleClick} >
@@ -79,19 +82,11 @@ function Navbar() {
                 MUSEUMS / GALLERIES
               </Link>
             </li>
-            { currentUser ?
+            { currentUser &&
             <> 
             <li className='nav-item'>
               <Link to='/logout' className='nav-links' onClick={closeMobileMenu, handleSignOut}>
                 ログアウト
-              </Link>
-            </li>
-            </>
-            :
-            <>
-            <li className='nav-item'>
-              <Link to='/login' className='nav-links' onClick={closeMobileMenu}>
-                ログイン
               </Link>
             </li>
             </>
