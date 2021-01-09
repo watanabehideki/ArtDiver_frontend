@@ -78,8 +78,8 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link to='/museums-galleries' className='nav-links' onClick={closeMobileMenu}>
-                MUSEUMS / GALLERIES
+              <Link to='/galleries' className='nav-links' onClick={closeMobileMenu}>
+                GALLERIES
               </Link>
             </li>
             { currentUser &&

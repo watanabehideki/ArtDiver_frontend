@@ -63,6 +63,7 @@ const LoginBtn = styled.button`
   background: #000;
   border-radius: 10px;
   outline: none;
+  border: none;
 `
 
  const LoginBtnLink = styled(Link)`
@@ -77,6 +78,7 @@ const LoginBtn = styled.button`
   background: #f55367;
   border-radius: 10px;
   outline: none;
+  border: none;
 `
 
 const SignupBtnLink = styled(Link)`
