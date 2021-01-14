@@ -9,6 +9,7 @@ import Navbar2 from './components/Navbar2'
 import Footer from './components/Footer'
 import Galleries from './components/pages/Galleries'
 import Gallery from './components/pages/Gallery'
+import Exhibitions from './components/pages/Exhibitions'
 
 function App() {
   const currentUser = localStorage.getItem('user')
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route exact path="/galleries/:id">
             <Gallery />
+          </Route>
+          <Route exact path='/exhibitions'>
+            <Exhibitions />
           </Route>
           <Route exact path="/login">
             {currentUser ? <Redirect to="/" /> : <Login />}

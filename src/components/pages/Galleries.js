@@ -20,7 +20,7 @@ export default function Galleries() {
 
 
   return (
-    <div>
+    <>
       <li className='galleries-wrap'>
         {galleries.map(item => (
           <Link className='galleries-link' to={`/galleries/${item.id}`}>
@@ -31,6 +31,6 @@ export default function Galleries() {
           </Link>
         ))}
       </li>
-    </div>
+    </>
   );
 }
