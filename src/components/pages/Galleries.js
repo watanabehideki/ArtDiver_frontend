@@ -19,7 +19,6 @@ export default function Galleries() {
         fetchData();
         }, []);
 
-
   return (
     <>
       <li className='galleries-wrap'>

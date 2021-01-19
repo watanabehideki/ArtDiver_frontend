@@ -1,0 +1,41 @@
+.exhibition-wrap {
+  padding: 10px;
+}
+.exhibition-title {
+  padding: 30px 40px 0 40px;
+}
+.exhibition-img {
+  width: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.exhibition-content {
+  padding: 20px;
+  line-height: 2;
+}
+
+.exhibition-info {
+  margin: 20px;
+}
+th {
+  padding: 3px;
+}
+
+td {
+  padding: 3px;
+}
+
+@media only screen and (min-width: 768px) {
+  .exhibition-img{
+    width: 800px;
+    height: 500px;
+  }
+
+  
+}

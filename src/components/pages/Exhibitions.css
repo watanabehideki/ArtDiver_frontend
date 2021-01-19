@@ -62,3 +62,21 @@ img {
   color: #2c2e31;
   padding: 2px;
 }
+
+@media only screen and (max-width: 768px) {
+  .exhibitions-item-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  .exhibitions-item {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 100%;
+  }
+  .exhibitions-item-img {
+    width: 100%;
+    height: 300px;
+
+  }
+}

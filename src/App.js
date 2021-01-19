@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import Galleries from './components/pages/Galleries'
 import Gallery from './components/pages/Gallery'
 import Exhibitions from './components/pages/Exhibitions'
+import Exhibition from './components/pages/Exhibition'
 
 function App() {
   const currentUser = localStorage.getItem('user')
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path='/exhibitions'>
             <Exhibitions />
+          </Route>
+          <Route exact path='/exhibitions/:id'>
+            <Exhibition />
           </Route>
           <Route exact path="/login">
             {currentUser ? <Redirect to="/" /> : <Login />}
