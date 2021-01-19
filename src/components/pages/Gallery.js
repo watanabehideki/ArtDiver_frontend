@@ -20,7 +20,7 @@ function Gallery() {
   }, [id])
 
   return (
-    <div>
+    <>
       <div className='gallery-name'>
         <h2>{gallery.name}</h2>
       </div>
@@ -56,7 +56,7 @@ function Gallery() {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   )
 }
 
