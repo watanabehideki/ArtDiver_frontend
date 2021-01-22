@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Gallery.css'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
+import MessageLinkButton from '../MessageLinkButton'
 
 
 function Gallery() {
@@ -31,30 +32,35 @@ function Gallery() {
         <p>{gallery.content}</p>
       </div>
       <div className='infomation-wrap'>
-        <table>
-          <tbody>
-            <tr>
-              <th>住所</th>
-              <td>{gallery.location}</td>
-            </tr>
-            <tr>
-              <th>電話</th>
-              <td>{gallery.tel}</td>
-            </tr>
-            <tr>
-              <th>開館時間</th>
-              <td>{gallery.open_time}</td>
-            </tr>
-            <tr>
-              <th>休館日</th>
-              <td>{gallery.holiday}</td>
-            </tr>
-            <tr>
-              <th>URL</th>
-              <td><Link to='#'>{gallery.url}</Link></td>
-            </tr>
-          </tbody>
-        </table>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <th>住所</th>
+                <td>{gallery.location}</td>
+              </tr>
+              <tr>
+                <th>電話</th>
+                <td>{gallery.tel}</td>
+              </tr>
+              <tr>
+                <th>開館時間</th>
+                <td>{gallery.open_time}</td>
+              </tr>
+              <tr>
+                <th>休館日</th>
+                <td>{gallery.holiday}</td>
+              </tr>
+              <tr>
+                <th>URL</th>
+                <td><Link to='#'>{gallery.url}</Link></td>
+              </tr>
+           </tbody>
+          </table>
+        </div>
+        <div className='message-link-button'>
+          <MessageLinkButton id={gallery.id}/>
+        </div>
       </div>
     </>
   )

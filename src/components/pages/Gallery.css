@@ -30,11 +30,26 @@ img {
   padding: 15px;
 }
 
+.message-link-button {
+  margin: 20px;
+}
+
 
 @media only screen and (min-width: 768px) {
   .gallery-img{
     width: 800px;
     height: 500px;
   }
+
+  .infomation-wrap {
+    margin: 20px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .message-link-button {
+    padding-left: 50px;
+  }
+  
   
 }
