@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 import './Galleries.css'
 import { Link } from 'react-router-dom'
-import Avatar from '@material-ui/core/Avatar';
 
 
 export default function Galleries() {
@@ -25,8 +24,10 @@ export default function Galleries() {
         {galleries.map(item => (
           <Link className='galleries-link' to={`/galleries/${item.id}`}>
             <div className='galleries-item' key={item.id} >
-                <Avatar src={`images/gallery-${item.id}.jpg`}/>
-              <div className='galleries-name'> {`${item.name}`} </div>
+              <div className='galleries-avatar'>
+                <img src={`images/gallery-${item.id}.jpg`} className='galleries-item-img'/>
+              </div>
+              <p className='galleries-name'> {`${item.name}`} </p>
             </div>
           </Link>
         ))}

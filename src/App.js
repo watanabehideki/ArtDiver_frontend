@@ -4,14 +4,14 @@ import { BrowserRouter, Switch, Route, Redirect, } from 'react-router-dom'
 
 import Home from './components/pages'
 import Login from './components/auth/Login'
-import Signup from './components/auth/Signup'
-import Navbar2 from './components/Navbar2'
+import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Galleries from './components/pages/Galleries'
 import Gallery from './components/pages/Gallery'
 import Exhibitions from './components/pages/Exhibitions'
 import Exhibition from './components/pages/Exhibition'
 import Message from './components/pages/Message'
+import Signup from './components/signup/Signup'
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar2 />
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <Home />

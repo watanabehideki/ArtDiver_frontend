@@ -67,6 +67,8 @@ const Message = () => {
       });
   }
 
+  const currentUser = localStorage.getItem('user')
+
   return (
     <>
     <div className='message-container'>
@@ -75,28 +77,30 @@ const Message = () => {
         <h3>Message To : {gallery.name}</h3>
         <div className='message'>
           <p className='status-notice'>{statusNotice}</p>
-          <form className={classes.root} id='contact-form' onSubmit={handleSubmit(onSubmit)}>
-            <input type='hidden' name='contact_number' value={contactNumber} />
-            <input type='hidden' name='gallery_email' value={gallery.email} />
+          <div className='message-form'>
+            <form className={classes.root} id='contact-form' onSubmit={handleSubmit(onSubmit)}>
+              <input type='hidden' name='contact_number' value={contactNumber} />
+              <input type='hidden' name='gallery_email' value={gallery.email} />
 
 
-            {errors.user_name && errors.user_name.type === "required" && (
-              <div role="alert">Name is required<br/></div>
-            )}
+              {errors.user_name && errors.user_name.type === "required" && (
+                <div role="alert">Name is required<br/></div>
+              )}
 
-            <TextField  label="お名前" type='text' name='user_name' ref={register} 
-            maxLength='30'
-            aria-invalid={errors.user_name ? "true" : "false"}
-            ref={register({ required: true })}/>
-<           TextField  label="メールアドレス" type='email' name='user_email' ref={register} /> 
-            <TextField  label="TEL" type='tel' name='user_tel' ref={register} />
-            <TextField  label="住所" type='text' name='user_address' ref={register} />
-            <TextField  label="好きな作家" type='text' name='favorite_artist' ref={register} />
-            <TextField  className='message-field' multiline  rows={6} label="ご意見・ご感想等" name='message' ref={register}  maxLength='1500'/>
-            <div className='message-sent'>
-              <input className='submit' type='submit' value='送信' />
-            </div>
-          </form>
+              <TextField  label="お名前" type='text' name='user_name' ref={register} 
+              maxLength='30'
+              aria-invalid={errors.user_name ? "true" : "false"}
+              ref={register({ required: true })}/>
+  <           TextField  label="メールアドレス" type='email' name='user_email' ref={register}  defaultValue={currentUser}/> 
+              <TextField  label="TEL" type='tel' name='user_tel' ref={register} />
+              <TextField  label="住所" type='text' name='user_address' ref={register} />
+              <TextField  label="好きな作家" type='text' name='favorite_artist' ref={register} />
+              <TextField  className='message-field' multiline  rows={6} label="ご意見・ご感想等" name='message' ref={register}  maxLength='1500'/>
+              <div className='message-sent'>
+                <input className='submit' type='submit' value='送信' />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

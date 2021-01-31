@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import './Login.css'
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -24,29 +25,44 @@ const Login = () => {
           'uid': response.data.data.uid
       }))
       window.location = '/' 
-    })
+    }).catch(errors => {
+      errors =errors.response.data.errors
+       console.log(errors)
+      })
   }
   return (
-    <div>
-        <h2>ログイン</h2>
-        <form onSubmit={handleLogin} >
-        <input
-          type="email"
-          name="email"
-          placeholder="メールアドレス"
-          value={email}
-          onChange={event => setEmail(event.target.value)}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="パスワード"
-          value={password}
-           onChange={event => setPassword(event.target.value)}
-        />
-        <button type="submit">ログイン</button>
-        </form>
+    <div　 className='login-form-container'>
+      <div className='login-form-wrap'>
+        <form onSubmit={handleLogin}  className='login-form'>
+          <div className='login-form-contents'>
+            <h2>ログイン</h2>
+            <div className='login-form-inputs'>
+              <label>メールアドレス</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="メールアドレス"
+                value={email}
+                onChange={event => setEmail(event.target.value)}
+                className='login-form-input'
+              />
+            </div>
+            <div className='login-form-inputs'>
+              <label>パスワード</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="パスワード"
+                value={password}
+                onChange={event => setPassword(event.target.value)}
+                className='login-form-input'
+              />
+            </div>    
+          <button type="submit" className='login-form-button'>ログイン</button>
+        </div>
+      </form>
       </div>
+    </div>
   )
 
 //     const [email, setEmail] = useState("")

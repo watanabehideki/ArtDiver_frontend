@@ -3,25 +3,16 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { BiMenu, BiUser } from 'react-icons/bi'
 import { AiOutlineClose } from 'react-icons/ai'
-import { Button } from './Button'
 import './Navbar.css'
 import LoginModalLink from './auth/LoginModalLink'
 
 
 function Navbar() {
   const [click, setClick] = useState(false)
-  const [button, setButton] = useState(true)
 
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else{
-      setButton(true);
-    }
-  }
 
   const handleSignOut = (event) => {
     event.preventDefault();
@@ -38,11 +29,6 @@ function Navbar() {
   const currentUser = localStorage.getItem('user')
 
 
-
-  useEffect(() => {
-    showButton();
-  }, []);
-  window.addEventListener('resize', showButton)
 
   return (
     <>

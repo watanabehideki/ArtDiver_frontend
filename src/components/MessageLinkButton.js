@@ -6,7 +6,7 @@ function MessageLinkButton(props) {
   return (
     <>
     <Link to={`/message/${props.id}`} >
-      <button>ご意見・ご感想等</button>
+      <button className='message-link-button-layout'>ご意見・ご感想等</button>
     </Link>
     </>
   )
