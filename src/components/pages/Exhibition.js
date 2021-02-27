@@ -13,7 +13,7 @@ export default function Exhibition() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `http://localhost:4001/exhibitions/${id}`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/exhibitions/${id}`,
       headers: JSON.parse(localStorage.getItem('user'))
     }).then((response) => {
       console.log(response)
@@ -28,7 +28,7 @@ export default function Exhibition() {
     <div className='exhibition-wrap'>
       <div className='exhibition-title'><h2>{exhibition.title}</h2></div>
       <div className='exhibition-img'>
-        <img src={`../images/exhibition-${exhibition.id}.jpg`} />
+        <img src={`../images/exhibition-${exhibition.id}.jpg`} alt='展覧会イメージ'/>
       </div>
       <div className='exhibition-content'>{exhibition.content}</div>
       <div className='exhibition-info'>

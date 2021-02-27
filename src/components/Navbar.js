@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { BiMenu, BiUser } from 'react-icons/bi'
@@ -18,7 +18,7 @@ function Navbar() {
     event.preventDefault();
     axios({
       method: 'DELETE',
-      url: 'http://localhost:4001/auth/sign_out',
+      url:`${process.env.REACT_APP_BACKEND_URL}/auth/sign_out`,
       data: JSON.parse(localStorage.user)
     })
     .then(() => {
@@ -71,7 +71,7 @@ function Navbar() {
             { currentUser &&
             <> 
             <li className='nav-item'>
-              <Link to='/logout' className='nav-links' onClick={closeMobileMenu, handleSignOut}>
+              <Link to='/logout' className='nav-links' onClick={closeMobileMenu && handleSignOut}>
                 ログアウト
               </Link>
             </li>

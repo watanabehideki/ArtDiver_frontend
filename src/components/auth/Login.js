@@ -10,7 +10,7 @@ const Login = () => {
     event.preventDefault()
     axios({
       method: 'POST',
-      url: 'http://localhost:4001/auth/sign_in',
+      url: `${process.env.REACT_APP_BACKEND_URL}/auth/sign_in`,
       data: {
         email: email,
         password: password

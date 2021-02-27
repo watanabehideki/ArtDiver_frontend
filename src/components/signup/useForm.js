@@ -25,11 +25,11 @@ const useForm = (callback, validate) => {
     setIsSubmitting(true)
     axios({
       method: 'POST',
-      url: 'http://localhost:4001/auth',
+      url: `${process.env.REACT_APP_BACKEND_URL}/auth`,
       data: {
         email: values.email,
         password: values.password,
-        confirm_success_url: 'http://localhost:4000/login'
+        confirm_success_url: 'https://artdiver.org/login'
       }
     }).catch(errors => {
       errors =errors.response

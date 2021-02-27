@@ -14,7 +14,7 @@ function Gallery() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `http://localhost:4001/galleries/${id}`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/galleries/${id}`,
       headers: JSON.parse(localStorage.getItem('user'))
     }).then((response) => {
       setGallery(response.data)
@@ -28,7 +28,7 @@ function Gallery() {
       </div>
       <div className='gallery-top'>
         <div className='gallery-img'>
-          <img src={`../images/gallery-${gallery.id}.jpg`}  />
+          <img src={`../images/gallery-${gallery.id}.jpg`}  alt='ギャラリーイメージ'/>
         </div>
         <p>{gallery.content}</p>
       </div>

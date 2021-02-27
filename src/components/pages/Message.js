@@ -24,7 +24,7 @@ const Message = () => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `http://localhost:4001/galleries/${id}`,
+      url: `http://localhost:4001/api/v1/galleries/${id}`,
       headers: JSON.parse(localStorage.getItem('user'))
     }).then((response) => {
       setGallery(response.data)
@@ -41,7 +41,7 @@ const Message = () => {
    
   const [statusNotice, setStatusNotice] = useState("Notice"); 
 
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const form = document.querySelector('#contact-form');
     const statusNotice = document.querySelector('.status-notice');
@@ -82,16 +82,8 @@ const Message = () => {
               <input type='hidden' name='contact_number' value={contactNumber} />
               <input type='hidden' name='gallery_email' value={gallery.email} />
 
-
-              {errors.user_name && errors.user_name.type === "required" && (
-                <div role="alert">Name is required<br/></div>
-              )}
-
-              <TextField  label="お名前" type='text' name='user_name' ref={register} 
-              maxLength='30'
-              aria-invalid={errors.user_name ? "true" : "false"}
-              ref={register({ required: true })}/>
-  <           TextField  label="メールアドレス" type='email' name='user_email' ref={register}  defaultValue={currentUser}/> 
+              <TextField  label="お名前" type='text' name='user_name' ref={register} />
+              <TextField  label="メールアドレス" type='email' name='user_email' ref={register}  defaultValue={currentUser}/> 
               <TextField  label="TEL" type='tel' name='user_tel' ref={register} />
               <TextField  label="住所" type='text' name='user_address' ref={register} />
               <TextField  label="好きな作家" type='text' name='favorite_artist' ref={register} />

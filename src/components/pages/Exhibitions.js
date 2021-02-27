@@ -3,13 +3,14 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import './Exhibitions.css'
 
+
 export default function Exhibitions() {
 
   const [exhibitions, setExhibitions] = useState([]);
 
   useEffect(()  =>  {
     async function fetchData()  {
-      const result = await axios.get('http://localhost:4001/exhibitions',)
+      const result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/exhibitions`)
         console.log(result)
         console.log(result.data)
         setExhibitions(result.data);
@@ -24,7 +25,7 @@ export default function Exhibitions() {
           {exhibitions.map(item => (
             <Link  className='exhibitions-item-link' to={`/exhibitions/${item.id}`}>
               <figure className='exhibitions-item-img'>
-                <img src={`./images/exhibition-${item.id}.jpg`} className='fade-img'/>
+                <img src={`./images/exhibition-${item.id}.jpg`} alt='展覧会イメージ'className='fade-img'/>
               </figure>
               <div className='exhibitions-item-info'>
                 <div className='exhibitions-item-title'>{item.title}</div>
