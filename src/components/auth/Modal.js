@@ -8,10 +8,10 @@ export const Modal = ({showModal, setShowModal}) => {
     <>
       { showModal ? (
         <div className='modal-background'>
-          <div className='modal-wrap' showModal={showModal}>
+          <div className='modal-wrap' >
             <MdClose className='close-modal'aria-label='Close modal' onClick={() => setShowModal(prev => !prev)} />
             <div className='modal-contents'>
-              <div className='modal-text'>新規登録すると、ギャラリーのフォロー機能や、展覧会への感想などを投稿機能などご利用できます。</div>
+              <div className='modal-text'>新規登録すると、展覧会への感想を投稿出来る機能などご利用できます。</div>
               <div className='modal-buttons'>
                 <Link className='login-btn-link' to='/login' onClick={() => setShowModal(prev => !prev)}>
                   <button className='login-btn'>ログイン</button>

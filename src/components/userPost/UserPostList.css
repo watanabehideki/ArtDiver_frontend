@@ -1,0 +1,39 @@
+.user-post-list-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.user-post-list {
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  box-shadow: 0 6px 20px rgb(56 125 255 / 17%);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.user-post-content {
+  margin: 10px;
+  padding: 20px;
+}
+
+.user-post-list-hr {
+  height: 2px;
+  background-color: gainsboro;
+  border: none;
+}
+
+.post-delete-submit {
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background: #f55367;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+}

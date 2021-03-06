@@ -24,7 +24,7 @@ const Message = () => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `http://localhost:4001/api/v1/galleries/${id}`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/galleries/${id}`,
       headers: JSON.parse(localStorage.getItem('user'))
     }).then((response) => {
       setGallery(response.data)
@@ -67,8 +67,6 @@ const Message = () => {
       });
   }
 
-  const currentUser = localStorage.getItem('user')
-
   return (
     <>
     <div className='message-container'>
@@ -83,13 +81,13 @@ const Message = () => {
               <input type='hidden' name='gallery_email' value={gallery.email} />
 
               <TextField  label="お名前" type='text' name='user_name' ref={register} />
-              <TextField  label="メールアドレス" type='email' name='user_email' ref={register}  defaultValue={currentUser}/> 
+              <TextField  label="メールアドレス" type='email' name='user_email' ref={register} /> 
               <TextField  label="TEL" type='tel' name='user_tel' ref={register} />
               <TextField  label="住所" type='text' name='user_address' ref={register} />
               <TextField  label="好きな作家" type='text' name='favorite_artist' ref={register} />
               <TextField  className='message-field' multiline  rows={6} label="ご意見・ご感想等" name='message' ref={register}  maxLength='1500'/>
               <div className='message-sent'>
-                <input className='submit' type='submit' value='送信' />
+              <input className='submit' type='submit' value='送信' />
               </div>
             </form>
           </div>

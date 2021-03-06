@@ -6,14 +6,14 @@ import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 function Footer() {
   return (
     <div className='footer-container'>
-      <div class='footer-links'>
+      <div className='footer-links'>
         <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>About us</h2>
             <Link to='/'>How...</Link>
             <Link to='/'>Test...</Link>
           </div>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>About us</h2>
             <Link to='/'>How...</Link>
             <Link to='/'>Test...</Link>
@@ -21,13 +21,13 @@ function Footer() {
 
         </div>
         <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>SNS</h2>
             <Link to='/'>Instagram</Link>
             <Link to='/'>Facebook</Link>
             <Link to='/'>Tiwitter</Link>
           </div>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>SNS</h2>
             <Link to='/'>Instagram</Link>
             <Link to='/'>Facebook</Link>
@@ -35,17 +35,17 @@ function Footer() {
           </div>
         </div>
       </div>
-      <section class='social-media'>
-        <div class='social-media-wrap'>
-          <div class='footer-logo'>
+      <section className='social-media'>
+        <div className='social-media-wrap'>
+          <div className='footer-logo'>
             <Link to='/' className='social-logo'>
               ARTDIVER
             </Link>
           </div>
-          <small class='website-rights'>ARTDIVER ©️ 2021</small>
-          <div class='social-icons'>
+          <small className='website-rights'>ARTDIVER ©️ 2021</small>
+          <div className='social-icons'>
             <Link
-              class='social-icon-link facebook'
+              className='social-icon-link facebook'
               to='/'
               target='_blank'
               aria-label='Facebook'
@@ -53,7 +53,7 @@ function Footer() {
               < FaFacebookF />
             </Link>
             <Link
-              class='social-icon-link instagram'
+              className='social-icon-link instagram'
               to='/'
               target='_blank'
               aria-label='Instagram'
@@ -61,7 +61,7 @@ function Footer() {
               < FaInstagram />
             </Link>
             <Link
-              class='social-icon-link twitter'
+              className='social-icon-link twitter'
               to='/'
               target='_blank'
               aria-label='Twitter'
