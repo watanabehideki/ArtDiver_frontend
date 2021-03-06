@@ -35,7 +35,7 @@ flex-direction: column;
 
 .submit {
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: black;
   color: #fff;
   font-weight: 800;
@@ -63,3 +63,9 @@ flex-direction: column;
   opacity: 1;
   color: red;
 } 
+
+@media only screen and (max-width: 768px) {
+  .contact-wrap {
+    width: 90%;
+  }
+}

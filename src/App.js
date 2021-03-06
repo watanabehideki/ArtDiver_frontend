@@ -5,13 +5,13 @@ import { BrowserRouter, Switch, Route, Redirect, } from 'react-router-dom'
 import Home from './components/pages'
 import Login from './components/auth/Login'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
 import Galleries from './components/pages/Galleries'
 import Gallery from './components/pages/Gallery'
 import Exhibitions from './components/pages/Exhibitions'
 import Exhibition from './components/pages/Exhibition'
 import Message from './components/pages/Message'
 import Signup from './components/signup/Signup'
+import Mypage from './components/pages/MyPage'
 
 
 function App() {
@@ -45,8 +45,10 @@ function App() {
           <Route exact path="/signup">
             {currentUser ? <Redirect to="/" /> : <Signup />}
           </Route>
+          <Route exact path='/mypage'>
+            {!currentUser ? <Redirect to="/" /> : <Mypage />}
+          </Route>
         </Switch>
-        <Footer />
       </BrowserRouter>
       </>
   )

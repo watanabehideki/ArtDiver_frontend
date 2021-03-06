@@ -1,0 +1,35 @@
+.user-post-form-wrap {
+  display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.user-post-form {
+  width: 500px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-post-textarea {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.user-post-form-submit {
+  height: 80px;
+  width: 150px;
+  margin: 20px;
+  background: black;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+
+}

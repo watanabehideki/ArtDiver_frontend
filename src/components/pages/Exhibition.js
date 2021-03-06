@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Exhibition.css'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
+import UserPostContainer from '../userPost/UserPostContainer'
 
 
 export default function Exhibition() {
@@ -70,11 +71,9 @@ export default function Exhibition() {
             </tr>
           </tbody>
         </table>
-
-
       </div>
-      
     </div>
+    <UserPostContainer exhibition_id={exhibition.id}/>
     </>
   )
 }

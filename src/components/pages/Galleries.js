@@ -20,9 +20,10 @@ export default function Galleries() {
 
   return (
     <>
-      <li className='galleries-wrap'>
-        {galleries.map(item => (
-          <Link className='galleries-link' to={`/galleries/${item.id}`}>
+      <ul className='galleries-wrap'>
+        {galleries.map((item, i) => 
+        <li key={i}>
+           <Link className='galleries-link' to={`/galleries/${item.id}`}>
             <div className='galleries-item' key={item.id} >
               <div className='galleries-avatar'>
                 <img src={`images/gallery-${item.id}.jpg`} alt='ギャラリーイメージ'className='galleries-item-img'/>
@@ -30,8 +31,9 @@ export default function Galleries() {
               <p className='galleries-name'> {`${item.name}`} </p>
             </div>
           </Link>
-        ))}
-      </li>
+        </li>
+        )}
+      </ul>
     </>
   );
 }

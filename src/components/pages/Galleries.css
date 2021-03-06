@@ -20,6 +20,7 @@
   justify-content: space-evenly;
   margin: 20px;
   padding: 10px;
+  flex-wrap: wrap;
 }
 
 .galleries-link{
