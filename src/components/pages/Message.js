@@ -19,6 +19,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Message = () => {
   const [gallery, setGallery] = useState({})
+  
+  //demo設定
+  const [testemail,setTestEmail] = useState('')
+  const handleChange = (e) => {
+    setTestEmail(() => e.target.value)
+  }
+  //
+
   let { id } = useParams()
 
   useEffect(() => {
@@ -78,10 +86,10 @@ const Message = () => {
           <div className='message-form'>
             <form className={classes.root} id='contact-form' onSubmit={handleSubmit(onSubmit)}>
               <input type='hidden' name='contact_number' value={contactNumber} />
-              <input type='hidden' name='gallery_email' value={gallery.email} />
+              <input type='hidden' name='gallery_email' value={testemail} />
 
               <TextField  label="お名前" type='text' name='user_name' ref={register} />
-              <TextField  label="メールアドレス" type='email' name='user_email' ref={register} /> 
+              <TextField  label="メールアドレス" type='email' name='user_email' ref={register} onChange={handleChange} value={testemail}/> 
               <TextField  label="TEL" type='tel' name='user_tel' ref={register} />
               <TextField  label="住所" type='text' name='user_address' ref={register} />
               <TextField  label="好きな作家" type='text' name='favorite_artist' ref={register} />
