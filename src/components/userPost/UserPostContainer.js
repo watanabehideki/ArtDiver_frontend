@@ -14,22 +14,17 @@ const UserPostContainer = (props) => {
   const [createUserPostContent, setCreateUserPostContent] = useState("")
   const [userPostList, setUserPostList] = useState([])
 
-  const exhibition_id = props.exhibition_id
-  console.log(exhibition_id)
-
-
   const createUserPost = () => {
     axios({
       method: 'POST',
       url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/microposts`,
       data: {
         user_id: currentUser_p.id,
-        exhibition_id: exhibition_id,
+        exhibition_id: props.exhibition_id,
         content: createUserPostContent
       }
     })
     .then(response => {
-      console.log(response)
       setUserPostList([{
         id: response.data.id,
         exhibition_id: response.data.exhibition_id,
@@ -44,23 +39,16 @@ const UserPostContainer = (props) => {
   useEffect(()  =>  {
     async function fetchData()  {
       const result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/microposts`,)
-        console.log(result)
-        console.log(result.data)
         setUserPostList(result.data)
       }
       fetchData();
       }, []);
 
-    console.log(userPostList)
-
-
   const deleteUserPostContent = (id) => {
     axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/v1/microposts/${id}`)
     .then(response => {
       setUserPostList(userPostList.filter(x => x.id !== id))
-      console.log("set") 
     }).catch(data =>  {
-      console.log(data)
     })
   }
   const resetTextField = () => {
