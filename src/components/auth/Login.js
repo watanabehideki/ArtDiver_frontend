@@ -60,6 +60,12 @@ const Login = () => {
               />
             </div>    
           <button type="submit" className='login-form-button'>ログイン</button>
+
+          <div>
+            <p>デモ用アカウント</p>
+            <p>メールアドレス: demo@example.com</p>
+            <p>パスワード: password</p>
+          </div>
         </div>
       </form>
       </div>
