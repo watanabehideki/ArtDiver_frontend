@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# ArtDiver
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ ArtDiverはアートギャラリーや展覧会情報を閲覧できるプラットホームです。
 
-## Available Scripts
+## 作成理由
 
-In the project directory, you can run:
+アート好きな人とアートギャラリーとの繋がりを増やし、また深める為に作成しました。
 
-### `yarn start`
+多くのアートギャラリーには展覧会場に芳名帳が置かれていて、芳名帳には来訪者が氏名や連絡先などを記入します。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+しかし、ほとんどの場合その芳名帳は誰でも見れる様な体裁で置かれている為、個人情報が悪用される恐れがあり、中には記入しない人もいます。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+これはギャラリーにとって、マーケティングのチャンスを逃し、また次回展覧会のお知らせが出来ない為、来訪者との繋がりの妨げになっています。
 
-### `yarn test`
+この問題を解決し、安心安全にアート好きな人とアートギャラリーとの繋がりをつくることが出来ます。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 【機能一覧】
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+クライアント
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+・ユーザーアカウント登録、ログイン機能(devise, devise_token_auth)
 
-### `yarn eject`
+・ユーザー感想投稿機能(ReactHooks)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+・メール送信機能(AWS SES,EmailJS)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+管理者
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+・管理者ログイン(devise)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+・データ管理(Active Admin)
 
-## Learn More
+## 【E-R図】
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![2021-03-07 22 24 29](https://user-images.githubusercontent.com/76731152/110316771-87423680-804e-11eb-942c-f87f4058966e.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 【使用技術】
 
-### Code Splitting
+### インフラ構成図
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![2021-03-07 22 24 29](https://user-images.githubusercontent.com/76731152/110312327-4c3d0480-8048-11eb-880a-5ca357bc0588.png)
 
-### Analyzing the Bundle Size
+### インフラ
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+・AWS
 
-### Making a Progressive Web App
+  - ECS Fargate
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  - ECR 
 
-### Advanced Configuration
+  - RDS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  - ALB
+  
+  
+  - ACM (SSL証明書)
 
-### Deployment
+  - SES
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  - SSM
 
-### `yarn build` fails to minify
+・EmailJS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### フロントエンド
+
+・Nginx 1.17.8-alpine
+
+・node 14.11.0
+
+・React.js (create-react-up)
+
+・ReactRouter
+
+・ReactHooks
+
+・Material-UI
+
+・axios
+
+### バックエンド
+
+・Nginx 1.16
+
+・Ruby 2.7.1
+
+・Ruby on Rails 6.0.0
+
+gem 'jbuilder'
+
+gem 'rack-cors'
+
+gem 'devise'
+
+gem 'devise_token_auth'
+
+gem 'aws-sdk-rails'
+
+gem 'dotenv-rails' 
+...etc
+
+・Puma
+
+・MySQL 5.7.30
+
+### 管理画面
+
+・Nginx 1.16
+
+・Ruby 2.7.1
+
+・Ruby on Rails 6.0.0
+
+gem 'devise'
+
+gem 'activeadmin'
+
+gem 'active_admin_flat_skin'
+...etc
+
+・Puma
+
+・MySQL 5.7.30
+
+### その他
+
+・VSCode
+
+・Docker/Docker-compose
+
+・Soucetree
+
+・draw.io
+
+
+
