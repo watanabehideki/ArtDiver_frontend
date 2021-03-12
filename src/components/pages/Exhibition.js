@@ -29,7 +29,7 @@ export default function Exhibition() {
     <div className='exhibition-wrap'>
       <div className='exhibition-title'><h2>{exhibition.title}</h2></div>
       <div className='exhibition-img'>
-        <img src={`../images/exhibition-${exhibition.id}.jpg`} alt='展覧会イメージ'/>
+        <img src={exhibition.image} alt='展覧会イメージ'/>
       </div>
       <div className='exhibition-content'>{exhibition.content}</div>
       <div className='exhibition-info'>
@@ -42,11 +42,11 @@ export default function Exhibition() {
             </tr>
             <tr>
               <th>会場</th>
-              <td>{gallery.name}</td>
+              <td>{exhibition.gallery_name}</td>
             </tr>
             <tr>
               <th>住所</th>
-              <td>{gallery.location}</td>
+              <td>{exhibition.gallery_location}</td>
             </tr>
             <tr>
               <th>電話</th>

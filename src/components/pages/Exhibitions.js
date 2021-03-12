@@ -26,7 +26,7 @@ export default function Exhibitions() {
           <li key={i}> 
             <Link  className='exhibitions-item-link' to={`/exhibitions/${item.id}`}>
               <figure className='exhibitions-item-img'>
-                <img src={`./images/exhibition-${item.id}.jpg`} alt='展覧会イメージ'className='fade-img'/>
+                <img src={item.exhibition_image.url} alt='展覧会イメージ'className='fade-img'/>
               </figure>
               <div className='exhibitions-item-info'>
                 <div className='exhibitions-item-title'>{item.title}</div>

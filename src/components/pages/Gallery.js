@@ -28,7 +28,7 @@ function Gallery() {
       </div>
       <div className='gallery-top'>
         <div className='gallery-img'>
-          <img src={`../images/gallery-${gallery.id}.jpg`}  alt='ギャラリーイメージ'/>
+          <img src={gallery.image}  alt='ギャラリーイメージ'/>
         </div>
         <p>{gallery.content}</p>
       </div>

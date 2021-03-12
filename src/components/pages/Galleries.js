@@ -26,7 +26,7 @@ export default function Galleries() {
            <Link className='galleries-link' to={`/galleries/${item.id}`}>
             <div className='galleries-item' key={item.id} >
               <div className='galleries-avatar'>
-                <img src={`images/gallery-${item.id}.jpg`} alt='ギャラリーイメージ'className='galleries-item-img'/>
+                <img src={item.image} alt='ギャラリーイメージ'className='galleries-item-img'/>
               </div>
               <p className='galleries-name'> {`${item.name}`} </p>
             </div>
