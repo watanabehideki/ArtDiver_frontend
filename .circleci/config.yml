@@ -27,7 +27,7 @@ workflows:
                 - master  # masterへのmerege/push時のみビルド
       - aws-ecs/deploy-service-update:
           requires:
-              - aws-ecr/build-and-push-image
+              - build-prod
           family: ' artdiver-frontend-task-definition'  #更新するタスク名
           cluster-name: 'artdiver-cluster' #更新するクラスター名
           service-name: 'artdiver-frontend' #更新するサービス名
