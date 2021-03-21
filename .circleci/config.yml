@@ -1,0 +1,34 @@
+version: 2.1 #circleciのバージョン orbsを利用するためには2.1以上が必要
+
+orbs: #circleci/aws-ecr@6.1.0というorbをaws-ecrというaliasをつけて扱う
+  aws-ecr: circleci/aws-ecr@6.1.0
+  aws-ecs: circleci/aws-ecs@0.0.8
+
+workflows:
+  build-and-deploy:   #build-and-deployという名前のworkflowを定義
+    jobs: #workflowで実行するjobの順番を定義
+      - build  
+      - aws-ecr/build-and-push-image:
+          region: AWS_REGION
+          account-url: AWS_ECR_ACCOUNT_URL
+          repo: 'artdiver_frontend' #ECRリポジトリ名
+          tag: "${CIRCLE_SHA1}" #イメージのタグにコミットのハッシュ値付与
+          path: ../
+          dockerfile: Dockerfile.prod #ビルドに使用したいDockerFileを指定
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master  # masterへのmerege/push時のみビルド
+      - aws-ecs/deploy-service-update:
+          requires:
+              - aws-ecr/build-and-push-image
+          family: ' artdiver-frontend-task-definition'  #更新するタスク名
+          cluster-name: 'artdiver-cluster' #更新するクラスター名
+          service-name: 'artdiver-frontend' #更新するサービス名
+          container-image-name-updates: 'container=artdiver-frontend,tag=${CIRCLE_SHA1}'
+          filters:    # masterへのmerege/push時のみデプロイ
+            branches:
+                only:
+                - master
