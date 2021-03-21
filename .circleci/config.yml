@@ -12,7 +12,6 @@ executors:
 workflows:
   build-and-deploy:   #build-and-deployという名前のworkflowを定義
     jobs: #workflowで実行するjobの順番を定義
-      - build
       - aws-ecr/build-and-push-image:
           executor: docker_build
           name: 'build-prod'
@@ -22,8 +21,6 @@ workflows:
           tag: "${CIRCLE_SHA1}" #イメージのタグにコミットのハッシュ値付与
           path: ../
           dockerfile: Dockerfile.prod #ビルドに使用したいDockerFileを指定
-          requires:
-            - build
           filters:
             branches:
               only:
